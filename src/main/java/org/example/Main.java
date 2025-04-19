@@ -1,17 +1,34 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// CRIACAO DE MULTIPLAS THREADS
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+    public static void main(String[] args) {
+        // Thread atual
+        Thread t = Thread.currentThread();
+        System.out.println(t.getName());
+
+        // Criacao de uma nova thread
+        Thread t0 = new Thread(new MyRunnable());
+        //thread1.run(); executa na thread main ao inves de criar uma nova
+
+        // criando thread com lambda
+        Thread t1 = new Thread(() -> System.out.println(Thread.currentThread().getName()));
+        //thread2.start(); Jamais iniciar a mesma thread mais de uma vez.
+
+        t0.start(); // cria uma nova thread para a execucao
+        t1.start();
+    }
+
+    public static class MyRunnable implements Runnable {
+        @Override
+        public void run() {
+            Thread thread = Thread.currentThread();
+            System.out.println(thread.getName());
         }
     }
 }
+
+
+
+

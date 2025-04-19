@@ -32,10 +32,4 @@ O projeto contém os seguintes arquivos principais:
 - **Java**: Linguagem principal do projeto.
 - **Gradle**: Ferramenta de build para gerenciar dependências e compilar o projeto.
 
-## Como Executar
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
-
 <hr></hr> Nota: Este projeto é apenas para fins educacionais e demonstração de conceitos de multithreading em Java.
